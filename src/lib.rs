@@ -149,6 +149,11 @@ impl StivaleStructure {
         self.get_tag(0x2187f79e8612de07).map(|tag| unsafe { &*(tag as *const MemoryMapTag) })
     }
 
+    /// Get the memory map tag (mutably)
+    pub fn memory_map_mut(&mut self) -> Option<&mut MemoryMapTag> {
+        self.get_tag(0x2187f79e8612de07).map(|tag| unsafe { &mut *(tag as *mut MemoryMapTag) })
+    }
+
     /// Get the module tag
     pub fn module(&self) -> Option<&ModuleTag> {
         self.get_tag(0x4b6fe466aade04ce).map(|tag| unsafe { &*(tag as *const ModuleTag) })
